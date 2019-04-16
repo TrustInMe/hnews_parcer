@@ -41,7 +41,7 @@ class ButtonParceView(View):
 
 
 class PostsView(ListAPIView):
-    """ API страницы /posts/ с выставленными параметрами"""
+    """ API страницы /posts/ с выставляемыми параметрами"""
 
     queryset = Posts.objects.all()
     serializer_class = PostSerializer
@@ -56,6 +56,6 @@ class PostsView(ListAPIView):
         """ Переписал дефолтный метод django-rest для 
         приведения к нужному по тз формату """
 
-       return Response(data)
+        return Response(data)
 
 

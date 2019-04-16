@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'jpo72)t1gss4kxw1ky-y3gt%50i*q^(ls_=9_)&efh!(_2*lu+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['51.15.196.183']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -77,9 +77,9 @@ TEMPLATES = [
     },
 ]
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 WSGI_APPLICATION = 'hnews_parcer.wsgi.application'
 
@@ -128,6 +128,12 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+STATIC_URL = '/static/'
+
+
 CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_TIMEZONE = 'Europe/Moscow'
 
@@ -139,6 +145,3 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': crontab(minute=5),
     },
 }
-
-STATIC_URL = '/static/'
-STATIC_ROOT = "/var/www/employe_base/employe_base/static/"
