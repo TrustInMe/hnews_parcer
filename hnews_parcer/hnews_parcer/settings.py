@@ -141,4 +141,4 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "/var/www/employe_base/employe_base/static/"
+STATIC_ROOT = "//var/www/hnews_parcer/hnews_parcer/static/"
