@@ -15,6 +15,8 @@ import bs4 as bs
 
 
 class IndexView(View):
+    """ Вью главной страницы """
+
     def get(self, request):
         posts = Posts.objects.all()
         return render(self.request, 'index_temp.html', {
@@ -22,6 +24,8 @@ class IndexView(View):
         })
 
 class ButtonParceView(View):
+    """ Парсинг при нажатии кнопки """
+
     def get(self, request):
         posts = Posts.objects.all().delete()
         
@@ -37,6 +41,8 @@ class ButtonParceView(View):
 
 
 class PostsView(ListAPIView):
+    """ API страницы /posts/ с выставленными параметрами"""
+
     queryset = Posts.objects.all()
     serializer_class = PostSerializer
     filter_backends = (filters.OrderingFilter,)
@@ -47,6 +53,9 @@ class PostsView(ListAPIView):
     paginator.max_limit = 25
 
     def get_paginated_response(self, data):
+        """ Переписал дефолтный метод django-rest для 
+        приведения к нужному по тз формату """
+
        return Response(data)
 
 
